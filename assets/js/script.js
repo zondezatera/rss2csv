@@ -125,20 +125,19 @@ jQuery(document).ready(function() {
 		function pre_export(index) {
 			var init_csv = "data:text/csv;charset=utf-8,";
 			var raw_full_data_csv = '';
+			var raw_full_detail_csv = '';
 			setTimeout(function(){ 	
-				console.log(jQuery(document).data());
 				for (var i = 0; i <= index-1; i++) {
 					raw_full_data_csv += jQuery(document).data('raw_full_data_csv['+i+']');
+					raw_full_detail_csv += jQuery(document).data('raw_full_detail_csv['+i+']');
 				}
 				var full_data_csv = init_csv+''+raw_full_data_csv;
 				var export_full_data_csv = encodeURI(full_data_csv);
+				var full_detail_csv = init_csv+''+raw_full_detail_csv;
+				var export_full_detail_csv = encodeURI(full_detail_csv);
 				jQuery('#export_full_data_csv').attr('href',export_full_data_csv);
-			}, 3000);
-
-			// var raw_full_detail_csv = jQuery(this).parent().find('#raw_full_detail_csv').text();
-			// var full_detail_csv = init_csv+''+raw_full_detail_csv;
-			// var export_full_detail_csv = encodeURI(full_detail_csv);
-			// jQuery('#export_full_detail_csv').attr('href',export_full_detail_csv);
+				jQuery('#export_full_detail_csv').attr('href',export_full_detail_csv);
+			},6000);
 		}
 		// init
 		import_csv_set();
