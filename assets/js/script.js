@@ -48,7 +48,8 @@ jQuery(document).ready(function() {
 										var url_data = infoArray[1];
 										jQuery.getJSON('http://whateverorigin.org/get?url=' + encodeURIComponent(url_data) + '&callback=?', function(data){
 											var data_set  = jQuery.parseHTML(data.contents);
-											var wrapper_data = jQuery(data_set[49]);
+											var visual_dom = jQuery('<output>').append(data_set);
+											var wrapper_data = jQuery('#wrapper',visual_dom);
 											var text_data = wrapper_data.find('.post-wrap').text();
 											var parent_set = jQuery('#list_full_detail_csv tbody');
 											var html_pattern = '';
