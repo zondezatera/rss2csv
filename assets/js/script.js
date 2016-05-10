@@ -61,7 +61,10 @@ jQuery(document).ready(function() {
 													html_pattern += '</td>';
 													html_pattern += '</tr>';
 											parent_set.append(html_pattern);
-											full_detail_csv += url_data+','+text_data+'\n';
+											var data_text_output = text_data;
+											data_text_output = data_text_output.replace(/<(?:.|\n)*?>/gm,'');
+											data_text_output = data_text_output.replace(/(\r\n|\n|\r|,)/gm,'');
+											full_detail_csv += url_data+','+data_text_output+'\n';
 											var export_full_detail_csv = encodeURI(full_detail_csv);
 											jQuery('#export_full_detail_csv').attr('href',export_full_detail_csv);
 										});
