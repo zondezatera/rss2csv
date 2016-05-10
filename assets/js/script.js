@@ -1,5 +1,6 @@
 jQuery(document).ready(function() {
-		jQuery('#export_csv').click(function (e) {
+		jQuery('#export_csv').hide();
+		jQuery('#generate_csv').click(function (e) {
 			var feed_url  = jQuery("#rss_url").val();
 			if (feed_url.length == 0) {
 				return alert('Input RSS url');
@@ -28,6 +29,7 @@ jQuery(document).ready(function() {
 									array_content.push(array_data);
 								});
 								console.log(array_content);
+								// Pattern Data
 								var csvContent = "data:text/csv;charset=utf-8,";
 								array_content.forEach(function(infoArray, index){
 										 dataString = infoArray.join(",");
@@ -37,8 +39,11 @@ jQuery(document).ready(function() {
 											csvContent += dataString;
 										 }
 								});
-								var encodedUri = encodeURI(csvContent);
-								window.open(encodedUri);
+								var export_full_data_csv = encodeURI(csvContent);
+								// Display btn for export 
+								jQuery('#export_full_data_csv').attr('href',export_full_data_csv);
+								jQuery('#generate_csv').hide();
+								jQuery('#export_csv').show();
 					}
 				}
 			});
