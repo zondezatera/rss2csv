@@ -18,7 +18,12 @@
 				    <h3 class="panel-title">Convert RSS to CSV</h3>
 				  </div>
 					<div class="panel-body">
-						<input id="rss_url" class="form-control"  placeholder="RSS url" style="margin-bottom: 5px"></input>
+					<!-- single_import -->
+					<!-- 	<input id="rss_url" class="form-control"  placeholder="RSS url" style="margin-bottom: 5px"></input> -->
+						<!-- multiple_import -->
+						<input class="form-control" type="file" name="base_url_import" id="base_url_import" style="margin-bottom: 5px" accept=".csv"  ></input>
+						<input type="hidden" name="import_data_csv" value="" id="import_data_csv"></input>
+						<!-- export csv -->
 						<button class="form-control btn btn-success" id="generate_csv">Generate</button>
 						<div class="sk-fading-circle">
 						  <div class="sk-circle1 sk-circle"></div>
