@@ -85,8 +85,9 @@ jQuery(document).ready(function() {
 								});
 								// Display btn for export 
 								jQuery('#generate_csv').hide();
+								var delay_time_set = 2000+(2000*index_set);
 								jQuery('.sk-fading-circle').show('slow',function() {
-									jQuery('#export_csv').delay(2000).show('slow',function() {
+									jQuery('#export_csv').delay(delay_time_set).show('slow',function() {
 										jQuery('.sk-fading-circle').hide('fast');
 									});
 								});
@@ -126,6 +127,7 @@ jQuery(document).ready(function() {
 			var init_csv = "data:text/csv;charset=utf-8,";
 			var raw_full_data_csv = '';
 			var raw_full_detail_csv = '';
+			var delay_time_set = 2000+(2000*index);
 			setTimeout(function(){ 	
 				for (var i = 0; i <= index-1; i++) {
 					raw_full_data_csv += jQuery(document).data('raw_full_data_csv['+i+']');
@@ -137,7 +139,7 @@ jQuery(document).ready(function() {
 				var export_full_detail_csv = encodeURI(full_detail_csv);
 				jQuery('#export_full_data_csv').attr('href',export_full_data_csv);
 				jQuery('#export_full_detail_csv').attr('href',export_full_detail_csv);
-			},6000);
+			},delay_time_set);
 		}
 		// init
 		import_csv_set();
